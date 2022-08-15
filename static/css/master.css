@@ -1,0 +1,18 @@
+html {
+    height:100%;
+}
+
+body {
+    background: rgb(0,119,182);
+    background: linear-gradient(135deg, rgba(0,119,182,1) 0%, rgba(144,224,239,1) 100%);
+    background-repeat: no-repeat;
+    /* background-size:100%; */
+    color: #3c0000;
+}
+
+.jumbotron {
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    background-color: var(--bs-light);
+    border-radius: .3rem;
+}

@@ -24,3 +24,4 @@ class Display(db.Model):
 
     def __repr__(self):
         return '<Display %r>'%self.id
+        

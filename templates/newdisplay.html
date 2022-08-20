@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add a new Halloween Display</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1>Fill out the form below to add a new display!</h1>
+    <form class="form form-group" action="/add" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="street1" class="form-label">Street Address Line 1</label>
+            <input type="text" name="street1" id="street1" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="street2" class="form-label">Name</label>
+            <input type="text" name="street2" id="street2" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" name="city" id="city" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="postcode" class="form-label">Postcode</label>
+            <input type="text" name="postcode" id="postcode" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="latitude" class="form-label">Latitude</label>
+            <input type="text" name="latitude" id="latitude" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="longitude" class="form-label">Longitude</label>
+            <input type="text" name="longitude" id="longitude" class="form-control">        
+        </div>
+        <div class="mb-3">
+            <label for="method" class="form-label">Delivery Method</label>
+            <input type="text" name="method" id="method" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="photos" class="form-label">Link to Photos/Album</label>
+            <input type="text" name="photos" id="photos" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="link" class="form-label">Link to Charity Page</label>
+            <input type="text" name="link" id="link" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Type of Display</label>
+            <input type="text" name="type" id="type" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="info" class="form-label">Further Information</label>
+            <input type="text" name="info" id="info" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="Add Display">
+        </div>
+    </form>
+
+    {% if displays|length < 1 %}
+        <h4>There are no displays. Create one above!</h4>
+    {% else %}
+        <table>
+            <tr>
+                <th>Display</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+            {% for display in displays %}
+                <tr>
+                    <td>{{ display.name }}</td>
+                    <td>{{ display.date_created.date() }} </td>
+                    <td>
+                        <a href="/delete/{{display.id}}">Delete</a>
+                        <br>
+                        <a href="/update/{{display.id}}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,68 +1,68 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Add a new Halloween Display</title>
+<title>Update {{ display.name }}</title>
 {% endblock %}
 
 {% block body %}
 <div class="jumbotron">
-    <h1>Fill out the form below to add a new display!</h1>
-    <form class="form form-group" action="/add" method="POST">
+    <h1>Update "{{ display.name }}" below</h1>
+    <form class="form form-group" action="/update/{{display.id}}" method="POST">
         <div class="container">
             <div class="row d-flex flex-row">
                 <div class="col-sm-6">
                     <div class="mb-1">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" id="name" class="form-control" value="">
+                        <input type="text" name="name" id="name" class="form-control" value="{{display.name}}"">
                     </div>
                     <div class="mb-1">
                         <label for="street1" class="form-label">Street Address Line 1</label>
-                        <input type="text" name="street1" id="street1" class="form-control">
+                        <input type="text" name="street1" id="street1" class="form-control" value="{{display.street1}}">
                     </div>
                     <div class="mb-1">
                         <label for="street2" class="form-label">Street Address Line 2</label>
-                        <input type="text" name="street2" id="street2" class="form-control">
+                        <input type="text" name="street2" id="street2" class="form-control" value="{{display.street2}}">
                     </div>
                     <div class="mb-1">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" name="city" id="city" class="form-control">
+                        <input type="text" name="city" id="city" class="form-control" value="{{display.city}}">
                     </div>
                     <div class="mb-1">
                         <label for="postcode" class="form-label">Postcode</label>
-                        <input type="text" name="postcode" id="postcode" class="form-control">
+                        <input type="text" name="postcode" id="postcode" class="form-control" value="{{display.postcode}}">
                     </div>
                     <div class="mb-1">
                         <label for="latitude" class="form-label">Latitude</label>
-                        <input type="text" name="latitude" id="latitude" class="form-control">
+                        <input type="text" name="latitude" id="latitude" class="form-control" value="{{display.latitude}}">
                     </div>
                     <div class="mb-1">
                         <label for="longitude" class="form-label">Longitude</label>
-                        <input type="text" name="longitude" id="longitude" class="form-control">        
+                        <input type="text" name="longitude" id="longitude" class="form-control" value="{{display.longitude}}">        
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="mb-1">
                         <label for="method" class="form-label">Delivery Method</label>
-                        <input type="text" name="method" id="method" class="form-control">
+                        <input type="text" name="method" id="method" class="form-control" value="{{display.method}}">
                     </div>
                     <div class="mb-1">
                         <label for="photos" class="form-label">Link to Photos/Album</label>
-                        <input type="text" name="photos" id="photos" class="form-control">
+                        <input type="text" name="photos" id="photos" class="form-control" value="{{display.photos}}">
                     </div>
                     <div class="mb-1">
                         <label for="link" class="form-label">Link to Charity Page</label>
-                        <input type="text" name="link" id="link" class="form-control">
+                        <input type="text" name="link" id="link" class="form-control" value="{{display.link}}">
                     </div>
                     <div class="mb-1">
                         <label for="type" class="form-label">Type of Display</label>
-                        <input type="text" name="type" id="type" class="form-control">
+                        <input type="text" name="type" id="type" class="form-control" value="{{display.type}}">
                     </div>
                     <div class="mb-1">
                         <label for="info" class="form-label">Further Information</label>
-                        <input type="text" name="info" id="info" class="form-control">
+                        <input type="text" name="info" id="info" class="form-control" value="{{display.info}}">
                     </div>
                     <div class="mb-1">
-                        <input type="submit" value="Add Display">
+                        <input type="submit" value="Update Display">
                     </div>
                 </div>
             </div>

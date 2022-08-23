@@ -8,6 +8,8 @@ db = SQLAlchemy(app)
 
 class Display(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    owners = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(40), nullable=False)
     street1 = db.Column(db.String(200), nullable=False)
     street2 = db.Column(db.String(200), nullable=False)
@@ -20,8 +22,6 @@ class Display(db.Model):
     link = db.Column(db.String(200), nullable=False)
     type = db.Column(db.String(20), nullable=False)
     info = db.Column(db.String(1000), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Display %r>'%self.id
-        

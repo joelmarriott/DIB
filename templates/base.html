@@ -11,19 +11,19 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-4" style="--bs-bg-opacity: .5;">
+    <nav role="navigation" class="navbar navbar-expand-sm navbar-dark bg-dark mb-4" style="--bs-bg-opacity: .5;">
         <div class="container-fluid">
-            <a class="navbar-brand mynav" href="#">HDIB</a>
+            <a class="navbar-brand mynav" href="/">HDIB</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="mainNavigation">
-                <ul class="nav">
-                    <li><a class="nav-link link-light" href="#">Map</a></li>
-                    <li><a class="nav-link link-light" href="#">List</a></li>
-                    <li><a class="nav-link link-light" href="#">Shop</a></li>
-                    <li><a class="nav-link link-light" href="#">About</a></li>
-                    <li><a class="nav-link link-light" href="#">Manage</a></li>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavigation">
+                <ul class="navbar-nav" style="float:right">
+                    <li class="nav-item"><a class="nav-link link-light" href="/map">Map</a></li>
+                    <li class="nav-item"><a class="nav-link link-light" href="/list">List</a></li>
+                    <li class="nav-item"><a class="nav-link link-light" href="/shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link link-light" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link link-light" href="/manage">Manage</a></li>
                 </ul>
             </div>
         </div>

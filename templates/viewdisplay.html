@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{ display.name }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1>{{ display.name }}</h1>
+    <div>
+        <table>
+            <tr>
+                <td>Street Address Line 1</td>
+                <td>{{ display.street1 }}</td>
+            </tr>
+            <tr>
+                <td>Street Address Line 2</td>
+                <td>{{ display.street2 }}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{ display.city }}</td>
+            </tr>
+            <tr>
+                <td>Postcode</td>
+                <td>{{ display.postcode }}</td>
+            </tr>
+            <tr>
+                <td>Latitude</td>
+                <td>{{ display.latitude }}</td>
+            </tr>
+            <tr>
+                <td>Longitude</td>
+                <td>{{ display.longitude }}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>Type of Display</td>
+                <td>{{ display.type }}</td>
+            </tr>
+            <tr>
+                <td>Link to Photos Album</td>
+                <td>{{ display.photos }}</td>
+            </tr>
+            <tr>
+                <td>Link to Charity Page</td>
+                <td>{{ display.link }}</td>
+            </tr>
+            <tr>
+                <td>Further Information</td>
+                <td>{{ display.info }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

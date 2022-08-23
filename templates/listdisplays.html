@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Halloween Display List</title>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+    <h1>Select a display to view further details</h1>
+{% if displays|length < 1 %}
+    <h4>There are no displays. Create one above!</h4>
+{% else %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Display</th>
+                <th scope="col">Postcode</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for display in displays %}
+                <tr>
+                    <td>{{ display.name }}</td>
+                    <td>{{ display.postcode }}</td>
+                    <td>{{ display.type }}</td>
+                    <td>
+                        <a href="/view/{{display.id}}">View</a>
+                        <br>
+                        <a href="/delete/{{display.id}}">Delete</a>
+                        <br>
+                        <a href="/update/{{display.id}}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+</div>
+{% endblock %}

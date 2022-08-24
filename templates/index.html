@@ -6,6 +6,22 @@
 
 {% block body %}
 <div class="jumbotron">
-    <h1>Halloween Displays in Bristol</h1>
+    <div class="container">
+        <div class="row d-flex flex-row">
+            <div class="col-sm-6 mb-4">
+                <h1 class="text-center">MAP SUBMISSIONS</h1>
+                <p class="text-center">If you would like to submit a display to the map please click the button below otherwise to contact us for any other reason please see the 'get in touch' area at the bottom of this page.</p>
+                <p class="text-center"><a href="/add"><button type="button" class="btn btn-warning">Add a Display</button></a></p>
+            </div>
+            <div class="col-sm-6 mb-4">
+                <h1 class="text-center">MOST RECENT DISPLAY</h1>
+                <p class="text-center"><a href="/view/{{new_display.id}}">{{ new_display.name }}</a></p>
+            </div>
+            <div class="col-md-12">
+                <h1 class="text-center">GET IN TOUCH</h1>
+                <p class="text-center"><a href="https://www.facebook.com/groups/213899113275168"><img class="resize" src="{{ url_for('static', filename='images/facebook.png') }}" alt="Find us on Facebook"></a></p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

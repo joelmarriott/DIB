@@ -1,11 +1,13 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 from models import Display, app, db
 
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    new_display = Display.query.order_by(desc(Display.date_created)).first()
+    return render_template('index.html', new_display=new_display)
 
 
 @app.route('/map')

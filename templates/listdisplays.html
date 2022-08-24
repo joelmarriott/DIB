@@ -10,26 +10,46 @@
 {% if displays|length < 1 %}
     <h4>There are no displays. Create one above!</h4>
 {% else %}
-    <table class="table table-hover">
+<form class="form form-group" action "/list" method="POST">
+    <table>
+        <tr>
+            <td>
+                <label for="postcode">Postcode</label>
+                <input type="text" name="postcode" id="postcode" class="form-control" value="{{ postcode }}">
+            </td>
+            <td class="align-bottom">
+                <input type="submit" value="Filter">
+            </td>
+        </tr>
+    </table>
+</form>
+<table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col">Display</th>
+                <th scope="col">Street Address</th>
                 <th scope="col">Postcode</th>
+                <th scope="col">Type</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for display in displays %}
                 <tr>
-                    <td>{{ display.name }}</td>
+                    <td><a href="/view/{{display.id}}">{{ display.name }}</a></td>
+                    <td>{{ display.street1 }}</td>
                     <td>{{ display.postcode }}</td>
                     <td>{{ display.type }}</td>
                     <td>
-                        <a href="/view/{{display.id}}">View</a>
-                        <br>
-                        <a href="/delete/{{display.id}}">Delete</a>
-                        <br>
-                        <a href="/update/{{display.id}}">Update</a>
+                        <span class="material-symbols-outlined">
+                            <a class="listbutton" href="/view/{{display.id}}">visibility</a>
+                        </span>
+                        <span class="material-symbols-outlined">
+                            <a class="listbutton" href="/update/{{display.id}}">edit</a>
+                        </span>
+                        <span class="material-symbols-outlined">
+                            <a class="listbutton" href="/delete/{{display.id}}">delete</a>
+                        </span>
                     </td>
                 </tr>
             {% endfor %}

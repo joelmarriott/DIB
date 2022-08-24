@@ -30,10 +30,18 @@ def manage():
     return render_template('manage.html')
 
 
-@app.route('/list')
+@app.route('/list', methods=['POST', 'GET'])
 def list():
-    displays = Display.query.order_by(Display.date_created).all()
-    return render_template('listdisplays.html', displays=displays)
+    if request.method == 'POST':
+        postcode = request.form['postcode']
+        if postcode == "ALL":
+            displays = Display.query.order_by(Display.date_created).all()
+        else:
+            displays = Display.query.filter(Display.postcode.contains(postcode)).order_by(Display.date_created).all()
+        return render_template('listdisplays.html', displays=displays, postcode=postcode)
+    else:
+        displays = Display.query.order_by(Display.date_created).all()
+        return render_template('listdisplays.html', displays=displays, postcode="ALL")
 
 
 @app.route('/add', methods=['POST', 'GET'])

@@ -11,6 +11,10 @@ body {
     font-family: 'Nanum Gothic Coding', monospace;
 }
 
+hr.solid {
+    border-top: 3px solid white;
+}
+
 nav {
     font-weight: 700;
 }
@@ -36,5 +40,24 @@ nav {
 }
 
 h1 {
+    font-weight: 700;
+}
+
+.listbutton:link, .listbutton:visited {
+    color: darkorange;
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: darkorange;
+}
+
+a:hover {
+    text-decoration:double;
+    font-weight: 700;
+}
+
+.navbutton:link, .navbutton:visited {
+    color:  green;
     font-weight: 700;
 }
